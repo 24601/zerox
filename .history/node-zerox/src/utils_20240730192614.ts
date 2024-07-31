@@ -39,7 +39,7 @@ export const downloadFile = async ({
   filePath: string;
   tempDir: string;
 }): Promise<string | void> => {
-  const localPdfPath = path.join(tempDir, path.basename(filePath.split("?")[0]));
+  const localPdfPath = path.join(tempDir, path.basename(filePath));
 
   // Check if filePath is a URL
   if (isValidUrl(filePath)) {
@@ -57,7 +57,7 @@ export const downloadFile = async ({
     await pipeline(response.data, writer);
   } else {
     // If filePath is a local file, copy it to the temp directory
-    await fs.copyFile(filePath.split("?")[0], localPdfPath);
+    await fs.copyFile(filePath, localPdfPath);
   }
   return localPdfPath;
 };
