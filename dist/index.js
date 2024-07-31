@@ -69,9 +69,9 @@ var zerox = function (_a) { return __awaiter(void 0, [_a], void 0, function (_b)
                 return [4 /*yield*/, fs_extra_1.default.ensureDir(tempDirectory)];
             case 1:
                 _j.sent();
-                return [4 /*yield*/, (0, utils_1.downloadFile)({ filePath: filePath, tempDir: tempDirectory }).split("?")[0]];
+                return [4 /*yield*/, (0, utils_1.downloadFile)({ filePath: filePath, tempDir: tempDirectory })];
             case 2:
-                localPath = _j.sent();
+                localPath = (_j.sent()).split("?")[0];
                 if (!localPath)
                     throw "Failed to save file to local drive";
                 endOfPath = localPath.split("/")[localPath.split("/").length - 1].split("?")[0];
