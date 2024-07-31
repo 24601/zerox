@@ -40,7 +40,7 @@ export const zerox = async ({
   await fs.ensureDir(tempDirectory);
 
   // Download the PDF. Get file name.
-  const localPath = await downloadFile({ filePath, tempDir: tempDirectory }).split("?")[0];
+  const localPath = await downloadFile({ filePath, tempDir: tempDirectory });
   if (!localPath) throw "Failed to save file to local drive";
   const endOfPath = localPath.split("/")[localPath.split("/").length - 1].split("?")[0];
   const rawFileName = endOfPath.split(".")[0];
