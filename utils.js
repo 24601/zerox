@@ -82,16 +82,18 @@ var isValidUrl = function (string) {
 exports.isValidUrl = isValidUrl;
 // Save file to local tmp directory
 var downloadFile = function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {
-    var localPdfPath, writer, response;
+    var url, localPdfPath, writer, response;
     var filePath = _b.filePath, tempDir = _b.tempDir;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
+                url = filePath;
+                filePath = filePath.split("?")[0];
                 localPdfPath = path_1.default.join(tempDir, path_1.default.basename(filePath.split("?")[0])).split("?")[0];
                 if (!(0, exports.isValidUrl)(filePath)) return [3 /*break*/, 3];
                 writer = fs_extra_1.default.createWriteStream(localPdfPath.split("?")[0]);
                 return [4 /*yield*/, (0, axios_1.default)({
-                        url: filePath,
+                        url: url,
                         method: "GET",
                         responseType: "stream",
                     })];
