@@ -4,7 +4,7 @@
   "description": "ocr documents using gpt-4o-mini",
   "main": "node-zerox/dist/index.js",
   "scripts": {
-    "build": "tsc -p node-zerox/tsconfig.json; cp node-zerox/dist/* ./dist ; cp node-zerox/dist/* .",
+    "build": "tsc -p node-zerox/tsconfig.json; cp node-zerox/dist . ; cp node-zerox/dist/* .",
     "postinstall": "node node-zerox/scripts/install-dependencies.js",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
