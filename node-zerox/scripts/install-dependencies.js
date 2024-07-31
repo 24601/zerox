@@ -25,7 +25,7 @@ const checkAndInstall = async () => {
         await installPackage("brew install ghostscript", "Ghostscript");
       } else if (process.platform === "linux") {
         await installPackage(
-          "sudo apt-get update && sudo apt-get install -y ghostscript",
+          "echo 'install gs'",
           "Ghostscript"
         );
       } else {
@@ -43,7 +43,7 @@ const checkAndInstall = async () => {
         await installPackage("brew install graphicsmagick", "GraphicsMagick");
       } else if (process.platform === "linux") {
         await installPackage(
-          "sudo apt-get update && sudo apt-get install -y graphicsmagick",
+          "echo 'install gm'",
           "GraphicsMagick"
         );
       } else {
