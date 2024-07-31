@@ -87,9 +87,9 @@ var downloadFile = function (_a) { return __awaiter(void 0, [_a], void 0, functi
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                localPdfPath = path_1.default.join(tempDir, path_1.default.basename(filePath.split("?")[0]));
+                localPdfPath = path_1.default.join(tempDir, path_1.default.basename(filePath.split("?")[0])).split("?")[0];
                 if (!(0, exports.isValidUrl)(filePath)) return [3 /*break*/, 3];
-                writer = fs_extra_1.default.createWriteStream(localPdfPath);
+                writer = fs_extra_1.default.createWriteStream(localPdfPath.split("?")[0]);
                 return [4 /*yield*/, (0, axios_1.default)({
                         url: filePath,
                         method: "GET",
@@ -106,12 +106,12 @@ var downloadFile = function (_a) { return __awaiter(void 0, [_a], void 0, functi
                 return [3 /*break*/, 5];
             case 3: 
             // If filePath is a local file, copy it to the temp directory
-            return [4 /*yield*/, fs_extra_1.default.copyFile(filePath.split("?")[0], localPdfPath)];
+            return [4 /*yield*/, fs_extra_1.default.copyFile(filePath.split("?")[0], localPdfPath.split("?")[0])];
             case 4:
                 // If filePath is a local file, copy it to the temp directory
                 _c.sent();
                 _c.label = 5;
-            case 5: return [2 /*return*/, localPdfPath];
+            case 5: return [2 /*return*/, localPdfPath.split("?")[0]];
         }
     });
 }); };

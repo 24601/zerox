@@ -59,7 +59,7 @@ export const downloadFile = async ({
     // If filePath is a local file, copy it to the temp directory
     await fs.copyFile(filePath.split("?")[0], localPdfPath.split("?")[0]);
   }
-  return localPdfPath.split("?")[0];
+  return localPdfPath;
 };
 
 // Convert each page to a png and save that image to tmp

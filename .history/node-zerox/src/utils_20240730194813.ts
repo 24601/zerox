@@ -43,7 +43,7 @@ export const downloadFile = async ({
 
   // Check if filePath is a URL
   if (isValidUrl(filePath)) {
-    const writer = fs.createWriteStream(localPdfPath.split("?")[0]);
+    const writer = fs.createWriteStream(localPdfPath);
 
     const response = await axios({
       url: filePath,
@@ -57,9 +57,9 @@ export const downloadFile = async ({
     await pipeline(response.data, writer);
   } else {
     // If filePath is a local file, copy it to the temp directory
-    await fs.copyFile(filePath.split("?")[0], localPdfPath.split("?")[0]);
+    await fs.copyFile(filePath.split("?")[0], localPdfPath);
   }
-  return localPdfPath.split("?")[0];
+  return localPdfPath;
 };
 
 // Convert each page to a png and save that image to tmp
