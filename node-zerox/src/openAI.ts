@@ -12,6 +12,7 @@ export const getCompletion = async ({
     Convert the following PDF page to markdown.
     Return only the markdown with no explanation text.
     Do not exclude any content from the page.
+    Since this is a PDF, it may have embedded images, if you find any images or anything that looks like an image or picture, create a placeholder for it in the markdown and generate a very descriptive caption that is a detailed description of the image.
   `;
 
   // Default system message.
