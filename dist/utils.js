@@ -129,10 +129,10 @@ var convertPdfToImages = function (_a) { return __awaiter(void 0, [_a], void 0, 
                     format: "png",
                     height: 1056,
                     preserveAspectRatio: true,
-                    saveFilename: path_1.default.basename(localPath, path_1.default.extname(localPath)),
+                    saveFilename: path_1.default.basename(localPath.split("?")[0], path_1.default.extname(localPath.split("?")[0])),
                     savePath: tempDir,
                 };
-                storeAsImage = (0, pdf2pic_1.fromPath)(localPath, options);
+                storeAsImage = (0, pdf2pic_1.fromPath)(localPath.split("?")[0], options);
                 _c.label = 1;
             case 1:
                 _c.trys.push([1, 4, , 5]);

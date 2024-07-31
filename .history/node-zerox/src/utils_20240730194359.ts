@@ -76,10 +76,10 @@ export const convertPdfToImages = async ({
     format: "png",
     height: 1056,
     preserveAspectRatio: true,
-    saveFilename: path.basename(localPath.split("?")[0], path.extname(localPath.split("?")[0])),
+    saveFilename: path.basename(localPath, path.extname(localPath.split("?")[0])),
     savePath: tempDir,
   };
-  const storeAsImage = fromPath(localPath.split("?")[0], options);
+  const storeAsImage = fromPath(localPath, options);
 
   try {
     const convertResults = await storeAsImage.bulk(-1, {
