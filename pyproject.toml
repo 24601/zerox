@@ -19,7 +19,7 @@ python = "^3.11"
 pre-install = "py_zerox.scripts.pre_install:check_and_install"
 
 [tool.poetry.group.dev.dependencies]
-notebook = "^7.2.1"
+notebook = "^7.4.6"
 black = "^24.4.2"
 ruff = "^0.5.5"
 
